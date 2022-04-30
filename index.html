@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Renni Bar Chart P/E and PEG</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>   
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/export-data.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/series-label.js"></script>
+
+
+    <!--CSS -->
+    <style type="text/css">
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 200px;
+            max-width: 400px;
+            margin-top: 3em ;
+        }
+
+        #container {
+            height: 25em;
+            width: 25em;
+            margin-top: 2em;
+            margin-left: 2em;
+        }
+
+        .figure.highcharts-figure {
+            margin-left: 3em
+        }
+        
+        .div.container {
+            margin-top: 5em;
+            margin-left: 2em;
+            margin-right: 2em;
+            margin-bottom: 2em;
+        }
+
+
+        .highcharts-description {
+            margin-left: 3em;
+            margin-right: 3em;
+        }
+
+
+        kbd {
+            background-color: #fcb5de;
+            border-radius: 3px;
+            border: 1px solid #fcb5de;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+            color: #333;
+            display: inline-block;
+            font-size: .85em;
+            font-weight: 700;
+            line-height: 1;
+            padding: 2px 4px;
+            white-space: nowrap;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container"></div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6"></div>
+                <div id="container1A"></div>
+            </div>
+            <div class="col-sm-6 col-md-6"></div>
+                <div id="container1B"></div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+
+        Highcharts.chart('container1A', {
+
+        title: {
+            text: 'Price-to-Earnings (P/E) Ratio, 2017-2022, NASDAQ Exchange'
+        },
+
+        subtitle: {
+            text: 'Source: NASDAQ, Yahoo Finance'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Price-to-Earnings (P/E) Ratio'
+            }
+        },
+
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 2017 to 2022'
+            }
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2017
+            }
+        },
+
+        series: [{
+            name: 'Consumer Cyclical',
+            data: [20.86, 18.7877777777778, 7.963333333, 18.71571429, 112.7011765, 14.35]
+        }, {
+            name: 'Energy',
+            data: [26.865, 51.29666667, 15.46, 14.3, 1.57, 0]
+        }, {
+            name: 'Financial',
+            data: [12.13916667, 33.75888889, 35.69933333, 27.42958333, 174.557767, 733.565]
+        }, {
+            name: 'Healthcare',
+            data: [2.605, 23.674, 47.63333333, 127.6536364, 67.32363636, 0]
+        }, {
+            name: 'Technology',
+            data: [87.3925, 131.2783333, 24.18142857, 171.495, 103.2733333, 0]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+        });
+
+
+        Highcharts.chart('container1B', {
+
+        title: {
+            text: 'Price/Earnings-to-Growth (PEG) Ratio, 2017-2022, NASDAQ Exchange'
+        },
+
+        subtitle: {
+            text: 'Source: NASDAQ, Yahoo Finance'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Price/Earnings-to-Growth (PEG) Ratio'
+            }
+        },
+
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 2017 to 2022'
+            }
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2017
+            }
+        },
+
+        series: [{
+            name: 'Consumer Cyclical',
+            data: [5.66, 0.855, 0, 18.38666667, 8.036, 0]
+        }, {
+            name: 'Energy',
+            data: [0, 0.7, 1.11, 4.77, 0, 0]
+        }, {
+            name: 'Financial',
+            data: [1.48, 4.16, 2.246666667, 1.69, 1.848571429, 0]
+        }, {
+            name: 'Healthcare',
+            data: [0, 0.29, 1.805, 4.5275, 0, 0]
+        }, {
+            name: 'Technology',
+            data: [1.33, 1.385, 1.15, 12.78571429, 7.4625, 0]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+        });
+
+
+</script>
+</body>
+    <div class="container1D"></div>
+    <p class="highcharts-description">
+        <kbd>Rasio PE dan PEG di NASDAQ <i>Exchange</i> </kbd> <i>Rasio Price-to-earning ratio (P/E)</i> adalah 
+        salah satu alat yang paling banyak digunakan dimana investor dan analisa menentukan valuasi 
+        relatif suatu saham. Rasio P/E membantu seseorang menentukan apakah suatu saham dinilai terlalu 
+        tinggi atau terlalu rendah. P/E perusahaan juga dapat dibandingkan dengan saham lain di industri 
+        yang sama atau terhadap pasar yang lebih luas. <i>(Jika rasio PE adalah 0, dikarenakan data yang null,
+        atau belum terpublikasikan pada sumber terkait).</i>
+    </p>
+
+    <p class="highcharts-description">
+        Rasio PEG menunjukkan saham yang terlalu mahal atau terlalu mahal bervariasi menurut industri dan 
+        jenis perusahaan. Sebagai aturan umum, beberapa investor merasa bahwa rasio PEG di bawah satu 
+        diinginkan. Menurut investor terkenal <i>Peter Lynch</i>, ketika PEG perusahaan melebihi 1, 
+        itu dianggap overvalued sementara saham dengan PEG kurang dari 1 dianggap undervalued. <i>(Jika 
+        rasio PEG adalah 0, dikarenakan data yang null, atau belum terpublikasikan pada sumber terkait).</i>
+
+
+
+
+Peter Lynch dan John Rothchild.
+    </p>
+
+</html>
